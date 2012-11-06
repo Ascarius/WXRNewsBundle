@@ -14,7 +14,6 @@
     "require": {
         "php": ">=5.3.3",
         "symfony/framework-bundle": "2.1.*",
-        "knplabs/knp-paginator-bundle": "dev-master",
         "wxr/common-bundle": "dev-master",
         "wxr/category-bundle": "dev-master"
     },
@@ -26,7 +25,7 @@
     "minimum-stability": "dev",
     "extra": {
         "branch-alias": {
-            "dev-master": "master"
+            "dev-master": "master-dev"
         }
     },
     "target-dir": "WXR/NewsBundle"
