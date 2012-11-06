@@ -1,0 +1,15 @@
+wxr_news_post_list:
+    pattern: /list/{page}
+    defaults: { _controller: 'WXRNewsBundle:News:list', page: 1 }
+
+wxr_news_post_show:
+    pattern: /show/{slug}
+    defaults: { _controller: 'WXRNewsBundle:News:show' }
+
+wxr_news_category_show:
+    pattern: /category/{slug}/{page}
+    defaults: { _controller: 'WXRNewsBundle:News:category', page: 1 }
+
+wxr_news_tag_show:
+    pattern: /tag/{slug}/{page}
+    defaults: { _controller: 'WXRNewsBundle:News:tag', page: 1 }

@@ -1,0 +1,12 @@
+WXR\NewsBundle\Entity\Category:
+    type: entity
+    table: wxr_news_category
+    manyToMany:
+        posts:
+            targetEntity: WXR\NewsBundle\Entity\Post
+            mappedBy: categories
+            fetch: EXTRA_LAZY
+            orderBy: { publishedAt: DESC }
+    uniqueConstraints:
+        UNIQ_slug:
+            columns: [ slug ]

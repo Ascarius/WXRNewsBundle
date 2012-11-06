@@ -1,0 +1,49 @@
+{% extends 'WXRCommonBundle::layout.html.twig' %}
+
+{% import 'WXRNewsBundle::news_macros.html.twig' as news %}
+
+{##
+ # @param WXR\NewsBundle\Model\PostInterface[] posts
+ # @param WXR\NewsBundle\Model\PostInterface previous
+ # @param WXR\NewsBundle\Model\PostInterface next
+ #}
+
+{% block title %}{{ post.title }} - {{ parent() }}{% endblock %}
+
+{% block content %}
+
+    <div class="btn-toolbar">
+        <a href="{{ path('wxr_news_post_list') }}" class="btn"><i class="icon-list"></i> {{ 'posts'|trans({}, 'WXRNewsBundle') }}</a>
+    </div>
+
+    <div class="page-header">
+        <h1>{{ post.title }}</h1>
+    </div>
+
+    <p><span class="label">{{ 'published_at'|trans({}, 'WXRNewsBundle') }}</span> {{ post.publishedAt|date('Y-m-d') }}</p>
+
+    {% if post.categories is not empty %}
+    <p><span class="label">{{ 'categories'|trans({}, 'WXRNewsBundle') }}</span> {{ news.categories_list(post.categories) }}</p>
+    {% endif %}
+
+    {% if post.tags is not empty %}
+    <p><span class="label">{{ 'tags'|trans({}, 'WXRNewsBundle') }}</span> {{ news.tags_list(post.tags) }}</p>
+    {% endif %}
+
+    <p>
+    {{ post.content|raw|nl2br }}
+    </p>
+
+    {% if previous or next %}
+    <div class="pagination">
+        <ul>
+            {% if next %}
+            <li><a href="{{ path('wxr_news_post_show', { slug: next.slug }) }}">« {{ next.title }}</a></li>
+            {% endif %}
+            {% if previous %}
+            <li><a href="{{ path('wxr_news_post_show', { slug: previous.slug }) }}">{{ previous.title }} »</a></li>
+            {% endif %}
+        </ul>
+    </div>
+    {% endif %}
+{% endblock %}

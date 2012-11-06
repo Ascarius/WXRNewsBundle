@@ -1,0 +1,68 @@
+parameters:
+
+    wxr_news.post.class: WXR\NewsBundle\Entity\Post
+    wxr_news.post.admin.class: WXR\NewsBundle\Admin\Entity\PostAdmin
+    wxr_news.post.manager.class: WXR\NewsBundle\Entity\PostManager
+
+    wxr_news.category.class: WXR\NewsBundle\Entity\Category
+    wxr_news.category.admin.class: WXR\NewsBundle\Admin\Entity\CategoryAdmin
+    wxr_news.category.manager.class: WXR\NewsBundle\Entity\CategoryManager
+
+    wxr_news.tag.class: WXR\NewsBundle\Entity\Tag
+    wxr_news.tag.admin.class: WXR\NewsBundle\Admin\Entity\TagAdmin
+    wxr_news.tag.manager.class: WXR\NewsBundle\Entity\TagManager
+
+    wxr_news.translation_domain: WXRNewsBundle
+
+services:
+
+    wxr_news.post.manager:
+        class: %wxr_news.post.manager.class%
+        arguments: [@doctrine.orm.entity_manager, %wxr_news.post.class%]
+    wxr_news.post.admin:
+        class: %wxr_news.post.admin.class%
+        arguments: [ ~, %wxr_news.post.class%, SonataAdminBundle:CRUD ]
+        calls:
+            - [ setTranslationDomain, [ %wxr_news.translation_domain% ] ]
+        tags:
+            -
+                name: sonata.admin
+                manager_type: orm
+                group: wxr_news
+                label: posts
+                label_catalogue: %wxr_news.translation_domain%
+                label_translator_strategy: sonata.admin.label.strategy.underscore
+
+    wxr_news.category.manager:
+        class: %wxr_news.category.manager.class%
+        arguments: [@doctrine.orm.entity_manager, %wxr_news.category.class%]
+    wxr_news.category.admin:
+        class: %wxr_news.category.admin.class%
+        arguments: [ ~, %wxr_news.category.class%, SonataAdminBundle:CRUD ]
+        calls:
+            - [ setTranslationDomain, [ %wxr_news.translation_domain% ] ]
+        tags:
+            -
+                name: sonata.admin
+                manager_type: orm
+                group: wxr_news
+                label: categories
+                label_catalogue: %wxr_news.translation_domain%
+                label_translator_strategy: sonata.admin.label.strategy.underscore
+
+    wxr_news.tag.manager:
+        class: %wxr_news.tag.manager.class%
+        arguments: [@doctrine.orm.entity_manager, %wxr_news.tag.class%]
+    wxr_news.tag.admin:
+        class: %wxr_news.tag.admin.class%
+        arguments: [ ~, %wxr_news.tag.class%, SonataAdminBundle:CRUD ]
+        calls:
+            - [ setTranslationDomain, [ %wxr_news.translation_domain% ] ]
+        tags:
+            -
+                name: sonata.admin
+                manager_type: orm
+                group: wxr_news
+                label: tags
+                label_catalogue: %wxr_news.translation_domain%
+                label_translator_strategy: sonata.admin.label.strategy.underscore

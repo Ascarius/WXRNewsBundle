@@ -1,0 +1,78 @@
+{# Categories comma separated list #}
+{% macro categories_list(categories) %}
+    {%- spaceless %}
+        {% for category in categories %}
+    <a href="{{ path('wxr_news_category_show', { slug: category.slug }) }}">{{ category.name }}</a>{{ loop.last ? '' : ', ' }}
+        {% endfor %}
+    {% endspaceless -%}
+{% endmacro %}
+
+{# Tag comma separated list #}
+{% macro tags_list(tags) %}
+    {%- spaceless %}
+        {% for tag in tags %}
+    <a href="{{ path('wxr_news_tag_show', { slug: tag.slug }) }}">{{ tag.name }}</a>{{ loop.last ? '' : ', ' }}
+        {% endfor %}
+    {% endspaceless -%}
+{% endmacro %}
+
+{# News list #}
+{% macro posts_list(posts) %}
+    <ul class="unstyled">
+    {% for post in posts %}
+        <li>
+            <h3><a href="{{ path('wxr_news_post_show', { slug: post.slug }) }}">{{ post.title }}</a></h3>
+            <p>{{ _self.categories_list(post.categories) }}</p>
+            <p>
+        {% if post.excerpt %}
+                {{ post.excerpt }}
+        {% else %}
+                {{ post.content|striptags|slice(0, 100) }} ...
+        {% endif %}
+            </p>
+        {% if not loop.last %}
+            <hr />
+        {% endif %}
+        </li>
+    {% else %}
+        <li>No result</li>
+    {% endfor %}
+    </ul>
+{% endmacro %}
+
+{# Pagination #}
+{% macro pagination(page, pageCount, routeArgs, pageKey) %}
+    {%- spaceless %}
+
+        {%- set route = app.request.attributes.get('_route') -%}
+        {%- set routeArgs = routeArgs|default({}) -%}
+        {%- set pageKey = pageKey|default('page') -%}
+
+        {% if pageCount > 1 %}
+    <div class="pagination">
+        <ul>
+            {% if page > 1 %}
+            <li><a href="{{ path(route, routeArgs|merge({ page: page - 1 })) }}">«</a></li>
+            {% else %}
+            <li class="disabled"><a>«</a></li>
+            {% endif %}
+
+            {% for num in 1..pageCount %}
+                {% if num == page %}
+            <li class="active"><a>{{ num }}</a></li>
+                {% else %}
+            <li><a href="{{ path(route, routeArgs|merge({ page: num })) }}">{{ num }}</a></li>
+                {% endif %}
+            {% endfor %}
+
+            {% if page < pageCount %}
+            <li><a href="{{ path(route, routeArgs|merge({ page: page + 1 })) }}">»</a></li>
+            {% else %}
+            <li class="disabled"><a>»</a></li>
+            {% endif %}
+        </ul>
+    </div>
+        {% endif %}
+
+    {% endspaceless -%}
+{% endmacro %}

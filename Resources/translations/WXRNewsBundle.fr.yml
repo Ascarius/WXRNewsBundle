@@ -1,0 +1,62 @@
+wxr_news: News
+posts: Articles
+categories: Catégories
+tags: Tags
+
+published_at: Publié le
+
+breadcrumb:
+
+    link_post_list: Articles
+    link_post_create: Ajouter
+    link_post_edit: Editer
+    link_post_delete: Supprimer
+
+    link_category_list: Catégories d'article
+    link_category_create: Ajouter
+    link_category_edit: Editer
+    link_category_delete: Supprimer
+
+    link_tag_list: Tags d'article
+    link_tag_create: Ajouter
+    link_tag_edit: Editer
+    link_tag_delete: Supprimer
+
+list:
+
+    label_title: Titre
+    label_enabled: Activé
+    label_sticky: Post-It
+    label_categories: Catégories
+    label_tags: Tags
+    label_published_at: Publication
+
+    label_name: Nom
+
+filter:
+
+    label_title: Titre
+    label_content: Contenu
+    label_categories: Catégories
+    label_tags: Tags
+
+    label_name: Nom
+
+form:
+
+    group_general: Général
+    group_categories: Catégories
+    group_options: Options
+
+    label_published_at: Publication
+    label_title: Titre
+    label_content: Contenu
+    label_excerpt: Extrait
+    label_categories: Catégories
+    label_tags: Tags
+    label_sticky: Post-It
+    label_enabled: Activé
+
+    label_name: Nom
+    label_description: Description
+    label_position: Position

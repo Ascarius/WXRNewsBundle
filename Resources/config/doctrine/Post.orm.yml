@@ -1,0 +1,38 @@
+WXR\NewsBundle\Entity\Post:
+    type: entity
+    table: wxr_news_post
+    indexes:
+        IDX_enabled:
+            columns: [ enabled ]
+        IDX_published_at:
+            columns: [ published_at ]
+        IDX_sticky:
+            columns: [ sticky ]
+    uniqueConstraints:
+        UNIQ_slug:
+            columns: [ slug ]
+    manyToMany:
+        categories:
+            targetEntity: WXR\NewsBundle\Entity\Category
+            inversedBy: posts
+            orderBy: { position: ASC, name: ASC }
+            joinTable:
+                name: wxr_news_post_category
+                joinColumns:
+                    post_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    category_id:
+                        referencedColumnName: id
+        tags:
+            targetEntity: WXR\NewsBundle\Entity\Tag
+            inversedBy: posts
+            orderBy: { name: ASC }
+            joinTable:
+                name: wxr_news_post_tag
+                joinColumns:
+                    post_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    category_id:
+                        referencedColumnName: id

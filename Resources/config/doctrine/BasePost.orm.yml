@@ -1,0 +1,34 @@
+WXR\NewsBundle\Entity\BasePost:
+    type: mappedSuperclass
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+        enabled:
+            type: boolean
+        slug:
+            length: 255
+            gedmo:
+                slug: { fields: [ title ] }
+        title:
+            length: 255
+        content:
+            type: text
+        excerpt:
+            type: text
+            nullable: true
+        publishedAt:
+            column: published_at
+            type: datetime
+        sticky:
+            type: boolean
+        createdAt:
+            column: created_at
+            type: datetime
+        updatedAt:
+            column: updated_at
+            type: datetime
+    lifecycleCallbacks:
+        preUpdate: [ onPreUpdate ]

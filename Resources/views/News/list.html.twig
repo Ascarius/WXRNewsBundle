@@ -1,0 +1,33 @@
+{% extends 'WXRCommonBundle::layout.html.twig' %}
+
+{% import 'WXRNewsBundle::news_macros.html.twig' as news %}
+
+{##
+ # @param WXR\NewsBundle\Model\PostInterface[] posts
+ # @param integer postCount
+ # @param WXR\NewsBundle\Model\PostInterface[] stickies
+ # @param integer page
+ # @param integer pageCount
+ #}
+
+{% block title %}News - {{ parent() }}{% endblock %}
+
+{% block content %}
+
+    <div class="page-header">
+        <h1>{{ 'News'|trans }}</h1>
+    </div>
+
+    {% if page == 1 and stickies %}
+
+    <div class="well">
+        {{ news.posts_list(stickies) }}
+    </div>
+
+    {% endif %}
+
+    {{ news.posts_list(posts) }}
+
+    {{ news.pagination(page, pageCount) }}
+
+{% endblock %}

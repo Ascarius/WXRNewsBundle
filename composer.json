@@ -1,0 +1,33 @@
+{
+    "name": "wxr/news-bundle",
+    "type": "symfony-bundle",
+    "description": "Symfony WXRNewsBundle",
+    "keywords": [ "news" ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Lionel Gaillard",
+            "email": "lionel.gaillard@wxrstudios.com",
+            "homepage": "http://wxrstudios.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/framework-bundle": "2.1.*",
+        "knplabs/knp-paginator-bundle": "dev-master",
+        "wxr/common-bundle": "dev-master",
+        "wxr/category-bundle": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+            "WXR\\NewsBundle": ""
+        }
+    },
+    "minimum-stability": "dev",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "master"
+        }
+    },
+    "target-dir": "WXR/NewsBundle"
+}
