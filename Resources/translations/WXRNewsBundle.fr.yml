@@ -3,7 +3,12 @@ posts: Articles
 categories: Catégories
 tags: Tags
 
-published_at: Publié le
+layout:
+    published_at: Publié le
+    news: News
+    posts: Articles
+    categories: Catégories
+    tags: Tags
 
 breadcrumb:
 
@@ -29,7 +34,8 @@ list:
     label_sticky: Post-It
     label_categories: Catégories
     label_tags: Tags
-    label_published_at: Publication
+    label_published_at: Publié le
+    label_published: Publié
 
     label_name: Nom
 
@@ -39,6 +45,7 @@ filter:
     label_content: Contenu
     label_categories: Catégories
     label_tags: Tags
+    label_published_at: Publié le
 
     label_name: Nom
 
@@ -48,7 +55,7 @@ form:
     group_categories: Catégories
     group_options: Options
 
-    label_published_at: Publication
+    label_published_at: Publié le
     label_title: Titre
     label_content: Contenu
     label_excerpt: Extrait

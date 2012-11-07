@@ -10,7 +10,7 @@
  # @param integer pageCount
  #}
 
-{% block title %}News - {{ parent() }}{% endblock %}
+{% block title %}{{ 'layout.news'|trans({}, 'WXRNewsBundle') }} - {{ parent() }}{% endblock %}
 
 {% block content %}
 
@@ -19,7 +19,7 @@
     </div>
 
     <div class="page-header">
-        <h1>{{ 'News'|trans }} | {{ category.name }}</h1>
+        <h1>{{ 'layout.news'|trans({}, 'WXRNewsBundle') }} | {{ category.name }}</h1>
     </div>
 
     {% if category.description %}

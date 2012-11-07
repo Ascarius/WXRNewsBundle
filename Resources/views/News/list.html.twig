@@ -10,12 +10,12 @@
  # @param integer pageCount
  #}
 
-{% block title %}News - {{ parent() }}{% endblock %}
+{% block title %}{{ 'layout.news'|trans({}, 'WXRNewsBundle') }} - {{ parent() }}{% endblock %}
 
 {% block content %}
 
     <div class="page-header">
-        <h1>{{ 'News'|trans }}</h1>
+        <h1>{{ 'layout.news'|trans({}, 'WXRNewsBundle') }}</h1>
     </div>
 
     {% if page == 1 and stickies %}

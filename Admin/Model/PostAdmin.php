@@ -69,6 +69,7 @@ class PostAdmin extends Admin
             ->add('content')
             ->add('categories')
             ->add('tags')
+            ->add('publishedAt')
         ;
     }
 
@@ -84,6 +85,7 @@ class PostAdmin extends Admin
             ->add('categories')
             ->add('tags')
             ->add('publishedAt')
+            ->add('published', 'boolean')
         ;
     }
 
