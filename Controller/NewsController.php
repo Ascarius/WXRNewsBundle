@@ -13,7 +13,7 @@ class NewsController extends Controller
 
         $postCount = $postManager->countPublished();
         $limit = 10;
-        $pageCount = (int) ceil($postCount / $limit);
+        $pageCount = $postCount > 0 ? (int) ceil($postCount / $limit) : 1;
 
         if ($page < 1) {
             $page = 1;
@@ -70,7 +70,7 @@ class NewsController extends Controller
 
         $postCount = $postManager->countByCategory($category);
         $limit = 10;
-        $pageCount = (int) ceil($postCount / $limit);
+        $pageCount = $postCount > 0 ? (int) ceil($postCount / $limit) : 1;
 
         if ($page < 1) {
             $page = 1;
@@ -104,7 +104,7 @@ class NewsController extends Controller
 
         $postCount = $postManager->countByTag($tag);
         $limit = 10;
-        $pageCount = (int) ceil($postCount / $limit);
+        $pageCount = $postCount > 0 ? (int) ceil($postCount / $limit) : 1;
 
         if ($page < 1) {
             $page = 1;
