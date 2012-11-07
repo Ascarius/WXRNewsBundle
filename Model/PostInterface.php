@@ -193,6 +193,13 @@ interface PostInterface
     public function isPublished();
 
     /**
+     * Get published
+     *
+     * @return boolean
+     */
+    public function getPublished();
+
+    /**
      * Set sticky
      *
      * @param boolean $sticky

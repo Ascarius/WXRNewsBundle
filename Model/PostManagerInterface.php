@@ -31,7 +31,7 @@ interface PostManagerInterface extends BaseManagerInterface
     public function countPublished();
 
     /**
-     * Find sticky
+     * Find stickies
      *
      * @param integer|null $limit
      * @param integer|null $offset
@@ -40,7 +40,7 @@ interface PostManagerInterface extends BaseManagerInterface
     public function findStickies($limit = null, $offset = null);
 
     /**
-     * Count sticky
+     * Count stickies
      *
      * @return integer
      */

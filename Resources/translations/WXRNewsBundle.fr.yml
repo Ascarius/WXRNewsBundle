@@ -29,6 +29,7 @@ list:
     label_sticky: Post-It
     label_categories: Catégories
     label_tags: Tags
+    label_published: Publié
     label_published_at: Publication
 
     label_name: Nom
@@ -39,6 +40,7 @@ filter:
     label_content: Contenu
     label_categories: Catégories
     label_tags: Tags
+    label_published_at: Publication
 
     label_name: Nom
 

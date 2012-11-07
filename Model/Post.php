@@ -339,7 +339,15 @@ abstract class Post implements PostInterface
      */
     public function isPublished()
     {
-        return $this->publishedAt > new \DateTime();
+        return $this->publishedAt < new \DateTime();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getPublished()
+    {
+        return $this->isPublished();
     }
 
     /**

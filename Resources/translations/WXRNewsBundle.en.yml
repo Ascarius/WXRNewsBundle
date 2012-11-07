@@ -28,6 +28,7 @@ list:
     label_enabled: Enabled
     label_categories: Categories
     label_tags: Tags
+    label_published: Published
     label_published_at: Publication
 
     label_name: Name
@@ -38,6 +39,7 @@ filter:
     label_content: Content
     label_categories: Categories
     label_tags: Tags
+    label_published_at: Publication
 
     label_name: Name
 
