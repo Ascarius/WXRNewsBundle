@@ -10,7 +10,7 @@ interface TagInterface extends BaseTagInterface
      * Add post
      *
      * @param PostInterface $post
-     * @return GroupInterface
+     * @return TagInterface
      */
     public function addPost(PostInterface $post);
 
@@ -18,7 +18,7 @@ interface TagInterface extends BaseTagInterface
      * Remove post
      *
      * @param PostInterface $post
-     * @return GroupInterface
+     * @return TagInterface
      */
     public function removePost(PostInterface $post);
 

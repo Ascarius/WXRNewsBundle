@@ -10,7 +10,7 @@ interface CategoryInterface extends BaseCategoryInterface
      * Add post
      *
      * @param PostInterface $post
-     * @return GroupInterface
+     * @return CategoryInterface
      */
     public function addPost(PostInterface $post);
 
@@ -18,7 +18,7 @@ interface CategoryInterface extends BaseCategoryInterface
      * Remove post
      *
      * @param PostInterface $post
-     * @return GroupInterface
+     * @return CategoryInterface
      */
     public function removePost(PostInterface $post);
 
