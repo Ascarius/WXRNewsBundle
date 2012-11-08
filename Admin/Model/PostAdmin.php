@@ -84,6 +84,7 @@ class PostAdmin extends Admin
             ->add('sticky')
             ->add('categories')
             ->add('tags')
+            ->add('published', 'boolean')
             ->add('publishedAt')
             ->add('published', 'boolean')
         ;
