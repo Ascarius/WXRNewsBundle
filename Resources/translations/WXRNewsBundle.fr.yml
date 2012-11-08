@@ -9,6 +9,7 @@ layout:
     posts: Articles
     categories: Catégories
     tags: Tags
+    no_result: Aucun résultat
 
 breadcrumb:
 

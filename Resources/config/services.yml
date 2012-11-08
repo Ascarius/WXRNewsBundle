@@ -35,7 +35,7 @@ services:
 
     wxr_news.category.manager:
         class: %wxr_news.category.manager.class%
-        arguments: [@doctrine.orm.entity_manager, %wxr_news.category.class%]
+        arguments: [@doctrine.orm.entity_manager, %wxr_news.category.class%, %wxr_news.post.class%]
     wxr_news.category.admin:
         class: %wxr_news.category.admin.class%
         arguments: [ ~, %wxr_news.category.class%, SonataAdminBundle:CRUD ]

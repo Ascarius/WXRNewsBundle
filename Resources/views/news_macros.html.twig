@@ -22,7 +22,11 @@
     {% for post in posts %}
         <li>
             <h3><a href="{{ path('wxr_news_post_show', { slug: post.slug }) }}">{{ post.title }}</a></h3>
-            <p>{{ _self.categories_list(post.categories) }}</p>
+
+        {% if post.categories is not empty %}
+            <p><span class="label">{{ 'layout.categories'|trans({}, 'WXRNewsBundle') }}</span> {{ _self.categories_list(post.categories) }}</p>
+        {% endif %}
+
             <p>
         {% if post.excerpt %}
                 {{ post.excerpt }}
@@ -35,7 +39,7 @@
         {% endif %}
         </li>
     {% else %}
-        <li>No result</li>
+        <li>{{ 'layout.no_result'|trans({}, 'WXRNewsBundle') }}</li>
     {% endfor %}
     </ul>
 {% endmacro %}

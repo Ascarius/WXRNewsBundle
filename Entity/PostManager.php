@@ -165,6 +165,8 @@ class PostManager extends BaseManager implements PostManagerInterface
      */
     public function findPrevious(PostInterface $post)
     {
+        $now = new \DateTime();
+
         $posts = $this->findBy(
             array(
                 'enabled' => true,
@@ -175,8 +177,9 @@ class PostManager extends BaseManager implements PostManagerInterface
             1
         );
 
-        if ($posts) {
+        if ($posts && $posts[0]->getPublishedAt() < $now) {
             return $posts[0];
+
         }
 
         return null;
@@ -187,6 +190,8 @@ class PostManager extends BaseManager implements PostManagerInterface
      */
     public function findNext(PostInterface $post)
     {
+        $now = new \DateTime();
+
         $posts = $this->findBy(
             array(
                 'enabled' => true,
@@ -197,7 +202,7 @@ class PostManager extends BaseManager implements PostManagerInterface
             1
         );
 
-        if ($posts) {
+        if ($posts && $posts[0]->getPublishedAt() < $now) {
             return $posts[0];
         }
 

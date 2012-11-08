@@ -142,12 +142,4 @@ class NewsController extends Controller
     {
         return $this->get('wxr_news.tag.manager');
     }
-
-    /**
-     * @return Knp\Component\Pager\Paginator
-     */
-    protected function getPaginator()
-    {
-        return $this->get('knp_paginator');
-    }
 }
