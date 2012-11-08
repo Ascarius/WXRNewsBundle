@@ -34,6 +34,12 @@
                 {{ post.content|striptags|slice(0, 100) }} ...
         {% endif %}
             </p>
+        {% if app.security.isGranted('ROLE_ADMIN') %}
+            <div class="btn-toolbar">
+                <a href="{{ path('admin_wxr_news_post_edit', { id: post.id }) }}" class="btn"><i class="icon-pencil"></i> {{ 'layout.edit'|trans({}, 'WXRNewsBundle') }}</a>
+            </div>
+        {% endif %}
+
         {% if not loop.last %}
             <hr />
         {% endif %}

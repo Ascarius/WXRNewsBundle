@@ -10,6 +10,8 @@ layout:
     categories: Catégories
     tags: Tags
     no_result: Aucun résultat
+    add: Ajouter
+    edit: Editer
 
 breadcrumb:
 
