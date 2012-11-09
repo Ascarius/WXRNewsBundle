@@ -34,6 +34,7 @@
         <a href="{{ path('admin_wxr_news_post_create') }}" class="btn"><i class="icon-plus"></i> {{ 'layout.add'|trans({}, 'WXRNewsBundle') }}</a>
     </div>
     {% endif %}
+
     {{ news.pagination(page, pageCount) }}
 
 {% endblock %}

@@ -44,10 +44,10 @@
     <div class="pagination">
         <ul>
             {% if previous %}
-            <li><a href="{{ path('wxr_news_post_show', { slug: previous.slug }) }}">« {{ previous.title }}</a></li>
+            <li><a href="{{ path('wxr_news_post_show', { slug: previous.slug }) }}">← {{ previous.title }}</a></li>
             {% endif %}
             {% if next %}
-            <li><a href="{{ path('wxr_news_post_show', { slug: next.slug }) }}">{{ next.title }} »</a></li>
+            <li><a href="{{ path('wxr_news_post_show', { slug: next.slug }) }}">{{ next.title }} →</a></li>
             {% endif %}
         </ul>
     </div>
