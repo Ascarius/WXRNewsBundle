@@ -83,12 +83,19 @@ interface PostManagerInterface extends BaseManagerInterface
     public function countByTag(TagInterface $tag);
 
     /**
+     * Find last post
+     *
+     * @return PostInterface|null
+     */
+    public function findLast();
+
+    /**
      * Find previous/older post
      *
      * @param PostInterface $post
      * @return PostInterface|null
      */
-    public function findPrevious(PostInterface $post);
+    public function findPreviousOf(PostInterface $post);
 
     /**
      * Find next/newer post
@@ -96,5 +103,5 @@ interface PostManagerInterface extends BaseManagerInterface
      * @param PostInterface $post
      * @return PostInterface|null
      */
-    public function findNext(PostInterface $post);
+    public function findNextOf(PostInterface $post);
 }

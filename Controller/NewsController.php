@@ -43,8 +43,8 @@ class NewsController extends Controller
         $post = $postManager->findOneBySlug($slug);
 
         if ($post) {
-            $previous = $postManager->findPrevious($post);
-            $next = $postManager->findNext($post);
+            $previous = $postManager->findPreviousOf($post);
+            $next = $postManager->findNextOf($post);
         } else {
             $previous = null;
             $next = null;

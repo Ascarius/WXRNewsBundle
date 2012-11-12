@@ -163,7 +163,30 @@ class PostManager extends BaseManager implements PostManagerInterface
     /**
      * {@inheritDoc}
      */
-    public function findPrevious(PostInterface $post)
+    public function findLast()
+    {
+        $now = new \DateTime();
+
+        $post = $this->findBy(
+            array(
+                'enabled' => true,
+                'publishedAt' => array('<', $now->format('Y-m-d H:i:s'))
+            ),
+            null,
+            1
+        );
+
+        if ($post) {
+            return $post[0];
+        }
+
+        return null;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function findPreviousOf(PostInterface $post)
     {
         $now = new \DateTime();
 
@@ -188,7 +211,7 @@ class PostManager extends BaseManager implements PostManagerInterface
     /**
      * {@inheritDoc}
      */
-    public function findNext(PostInterface $post)
+    public function findNextOf(PostInterface $post)
     {
         $now = new \DateTime();
 
@@ -232,6 +255,18 @@ class PostManager extends BaseManager implements PostManagerInterface
             ->leftJoin($this->alias.'.categories', 'cat')
             ->leftJoin($this->alias.'.tags', 'tag')
         ;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    protected function buildWhereClause(QueryBuilder $qb, array $criteria)
+    {
+        if (!array_key_exists('enabled', $criteria)) {
+            $criteria['enabled'] = true;
+        }
+
+        return parent::buildWhereClause($qb, $criteria);
     }
 
     /**
