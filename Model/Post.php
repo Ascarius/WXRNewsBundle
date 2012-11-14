@@ -105,7 +105,6 @@ abstract class Post implements PostInterface
     public function addCategory(CategoryInterface $category)
     {
         if (! $this->hasCategory($category)) {
-            $category->addPost($this);
             $this->categories[] = $category;
         }
 
@@ -118,7 +117,6 @@ abstract class Post implements PostInterface
     public function removeCategory(CategoryInterface $category)
     {
         if (false !== ($key = array_search($category, $this->categories, true))) {
-            $category->removePost($this);
             unset($this->categories[$key]);
         }
 
@@ -130,10 +128,6 @@ abstract class Post implements PostInterface
      */
     public function clearCategories()
     {
-        foreach ($this->categories as $category) {
-            $category->removePost($this);
-        }
-
         $this->categories = array();
 
         return $this;
@@ -176,7 +170,6 @@ abstract class Post implements PostInterface
     public function addTag(TagInterface $tag)
     {
         if (! $this->hasTag($tag)) {
-            $tag->addPost($this);
             $this->tags[] = $tag;
         }
 
@@ -189,7 +182,6 @@ abstract class Post implements PostInterface
     public function removeTag(TagInterface $tag)
     {
         if (false !== ($key = array_search($tag, $this->tags, true))) {
-            $tag->removePost($this);
             unset($this->tags[$key]);
         }
 
@@ -201,10 +193,6 @@ abstract class Post implements PostInterface
      */
     public function clearTags()
     {
-        foreach ($this->tags as $tag) {
-            $tag->removePost($this);
-        }
-
         $this->tags = array();
 
         return $this;

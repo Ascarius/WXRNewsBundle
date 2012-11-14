@@ -1,12 +1,6 @@
 WXR\NewsBundle\Entity\Tag:
     type: entity
     table: wxr_news_tag
-    manyToMany:
-        posts:
-            targetEntity: WXR\NewsBundle\Entity\Post
-            mappedBy: tags
-            fetch: EXTRA_LAZY
-            orderBy: { publishedAt: DESC }
     uniqueConstraints:
         UNIQ_slug:
             columns: [ slug ]

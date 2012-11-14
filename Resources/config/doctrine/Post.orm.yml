@@ -14,7 +14,6 @@ WXR\NewsBundle\Entity\Post:
     manyToMany:
         categories:
             targetEntity: WXR\NewsBundle\Entity\Category
-            inversedBy: posts
             orderBy: { position: ASC, name: ASC }
             joinTable:
                 name: wxr_news_post_category
@@ -26,7 +25,6 @@ WXR\NewsBundle\Entity\Post:
                         referencedColumnName: id
         tags:
             targetEntity: WXR\NewsBundle\Entity\Tag
-            inversedBy: posts
             orderBy: { name: ASC }
             joinTable:
                 name: wxr_news_post_tag

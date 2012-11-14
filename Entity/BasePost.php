@@ -31,7 +31,6 @@ abstract class BasePost extends Post
     public function addCategory(CategoryInterface $category)
     {
         if (! $this->hasCategory($category)) {
-            $category->addPost($this);
             $this->categories->add($category);
         }
 
@@ -44,7 +43,6 @@ abstract class BasePost extends Post
     public function removeCategory(CategoryInterface $category)
     {
         if ($this->hasCategory($category)) {
-            $category->removePost($this);
             $this->categories->removeElement($category);
         }
 
@@ -56,10 +54,6 @@ abstract class BasePost extends Post
      */
     public function clearCategories()
     {
-        foreach ($this->categories as $category) {
-            $category->removePost($this);
-        }
-
         $this->categories = new ArrayCollection();
 
         return $this;
@@ -79,7 +73,6 @@ abstract class BasePost extends Post
     public function addTag(TagInterface $tag)
     {
         if (! $this->hasTag($tag)) {
-            $tag->addPost($this);
             $this->tags->add($tag);
         }
 
@@ -92,7 +85,6 @@ abstract class BasePost extends Post
     public function removeTag(TagInterface $tag)
     {
         if ($this->hasTag($tag)) {
-            $tag->removePost($this);
             $this->tags->removeElement($tag);
         }
 
@@ -104,10 +96,6 @@ abstract class BasePost extends Post
      */
     public function clearTags()
     {
-        foreach ($this->tags as $tag) {
-            $tag->removePost($this);
-        }
-
         $this->tags = new ArrayCollection();
 
         return $this;
