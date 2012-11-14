@@ -28,7 +28,7 @@ class PostAdmin extends Admin
                 ->add('publishedAt')
                 ->add('title')
                 ->add('content', null, array(
-                    'attr' => array('data-wysiwyg' => true, 'rows' => 10)
+                    'attr' => array('data-wysiwyg' => true, 'rows' => 20)
                 ))
                 ->add('excerpt', null, array(
                     'required' => false
