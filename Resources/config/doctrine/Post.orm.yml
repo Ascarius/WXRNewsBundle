@@ -11,6 +11,11 @@ WXR\NewsBundle\Entity\Post:
     uniqueConstraints:
         UNIQ_slug:
             columns: [ slug ]
+    fields:
+        slug:
+            length: 255
+            gedmo:
+                slug: { fields: [ title ] }
     manyToMany:
         categories:
             targetEntity: WXR\NewsBundle\Entity\Category
