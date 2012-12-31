@@ -99,7 +99,7 @@ class PostManager extends BaseManager implements PostManagerInterface
 
         return $this->findBy(
             array(
-                'cat.id' => $category->getId(),
+                'category.id' => $category->getId(),
                 'enabled' => true,
                 'publishedAt' => array('<', $now->format('Y-m-d H:i:s'))
             ),
@@ -118,7 +118,7 @@ class PostManager extends BaseManager implements PostManagerInterface
 
         return $this->countBy(
             array(
-                'cat.id' => $category->getId(),
+                'category.id' => $category->getId(),
                 'enabled' => true,
                 'publishedAt' => array('<', $now->format('Y-m-d H:i:s'))
             )
@@ -239,7 +239,7 @@ class PostManager extends BaseManager implements PostManagerInterface
     {
         return array(
             $this->alias.'.title',
-            'cat.name',
+            'category.name',
             'tag.name'
         );
     }
@@ -253,7 +253,7 @@ class PostManager extends BaseManager implements PostManagerInterface
 
         $needJoins = false;
 
-        foreach (array('_search', 'cat', 'tag') as $needle) {
+        foreach (array('_search', 'category', 'tag') as $needle) {
             foreach ($criteria as $criterium => $value) {
                 if (false !== strpos($criterium, $needle)) {
                     $needJoins = true;
@@ -264,7 +264,7 @@ class PostManager extends BaseManager implements PostManagerInterface
 
         if ($needJoins) {
             $qb
-                ->leftJoin($this->alias.'.categories', 'cat')
+                ->leftJoin($this->alias.'.categories', 'category')
                 ->leftJoin($this->alias.'.tags', 'tag')
             ;
         }
