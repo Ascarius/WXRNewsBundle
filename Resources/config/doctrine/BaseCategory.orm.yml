@@ -1,0 +1,2 @@
+WXR\NewsBundle\Entity\BaseCategory:
+    type: mappedSuperclass

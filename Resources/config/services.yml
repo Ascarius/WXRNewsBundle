@@ -1,27 +1,18 @@
 parameters:
 
-    wxr_news.post.class: WXR\NewsBundle\Entity\Post
-    wxr_news.post.admin.class: WXR\NewsBundle\Admin\Entity\PostAdmin
-    wxr_news.post.manager.class: WXR\NewsBundle\Entity\PostManager
-
-    wxr_news.category.class: WXR\NewsBundle\Entity\Category
-    wxr_news.category.admin.class: WXR\NewsBundle\Admin\Entity\CategoryAdmin
-    wxr_news.category.manager.class: WXR\NewsBundle\Entity\CategoryManager
-
-    wxr_news.tag.class: WXR\NewsBundle\Entity\Tag
-    wxr_news.tag.admin.class: WXR\NewsBundle\Admin\Entity\TagAdmin
-    wxr_news.tag.manager.class: WXR\NewsBundle\Entity\TagManager
-
-    wxr_news.translation_domain: WXRNewsBundle
+    wxr_news.post.class: Application\WXR\NewsBundle\Entity\Post
+    wxr_news.category.class: Application\WXR\NewsBundle\Entity\Category
+    wxr_news.tag.class: Application\WXR\NewsBundle\Entity\Tag
 
 services:
 
-    wxr_news.post.manager:
-        class: %wxr_news.post.manager.class%
+    wxr_news.post.manager.default:
+        class: WXR\NewsBundle\Entity\PostManager
         arguments: [@doctrine.orm.entity_manager, %wxr_news.post.class%]
+
     wxr_news.post.admin:
         class: %wxr_news.post.admin.class%
-        arguments: [ ~, %wxr_news.post.class%, SonataAdminBundle:CRUD ]
+        arguments: [ ~, %wxr_news.post.class%, %wxr_news.post.admin.controller% ]
         calls:
             - [ setTranslationDomain, [ %wxr_news.translation_domain% ] ]
         tags:
@@ -33,12 +24,13 @@ services:
                 label_catalogue: %wxr_news.translation_domain%
                 label_translator_strategy: sonata.admin.label.strategy.underscore
 
-    wxr_news.category.manager:
-        class: %wxr_news.category.manager.class%
+    wxr_news.category.manager.default:
+        class: WXR\NewsBundle\Entity\CategoryManager
         arguments: [@doctrine.orm.entity_manager, %wxr_news.category.class%, %wxr_news.post.class%]
+
     wxr_news.category.admin:
         class: %wxr_news.category.admin.class%
-        arguments: [ ~, %wxr_news.category.class%, SonataAdminBundle:CRUD ]
+        arguments: [ ~, %wxr_news.category.class%, %wxr_news.category.admin.controller% ]
         calls:
             - [ setTranslationDomain, [ %wxr_news.translation_domain% ] ]
         tags:
@@ -50,12 +42,13 @@ services:
                 label_catalogue: %wxr_news.translation_domain%
                 label_translator_strategy: sonata.admin.label.strategy.underscore
 
-    wxr_news.tag.manager:
-        class: %wxr_news.tag.manager.class%
+    wxr_news.tag.manager.default:
+        class: WXR\NewsBundle\Entity\TagManager
         arguments: [@doctrine.orm.entity_manager, %wxr_news.tag.class%]
+
     wxr_news.tag.admin:
         class: %wxr_news.tag.admin.class%
-        arguments: [ ~, %wxr_news.tag.class%, SonataAdminBundle:CRUD ]
+        arguments: [ ~, %wxr_news.tag.class%, %wxr_news.tag.admin.controller% ]
         calls:
             - [ setTranslationDomain, [ %wxr_news.translation_domain% ] ]
         tags:

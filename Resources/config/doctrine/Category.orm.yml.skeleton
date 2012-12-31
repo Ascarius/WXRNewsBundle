@@ -1,4 +1,4 @@
-WXR\NewsBundle\Entity\Category:
+Application\WXR\NewsBundle\Entity\Category:
     type: entity
     table: wxr_news_category
     uniqueConstraints:

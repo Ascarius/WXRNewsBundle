@@ -36,13 +36,13 @@ class PostAdmin extends Admin
             ->end()
             ->with('form.group_categories')
                 ->add('categories', 'sonata_type_model', array(
-                    'class' => 'WXR\\NewsBundle\\Entity\\Category',
+                    'class' => 'Application\\WXR\\NewsBundle\\Entity\\Category',
                     'multiple' => true,
                     'expanded' => true,
                     'required' => false
                 ))
                 ->add('tags', 'sonata_type_model', array(
-                    'class' => 'WXR\\NewsBundle\\Entity\\Tag',
+                    'class' => 'Application\\WXR\\NewsBundle\\Entity\\Tag',
                     'multiple' => true,
                     'expanded' => true,
                     'required' => false

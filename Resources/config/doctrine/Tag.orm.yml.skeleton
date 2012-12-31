@@ -1,4 +1,4 @@
-WXR\NewsBundle\Entity\Tag:
+Application\WXR\NewsBundle\Entity\Tag:
     type: entity
     table: wxr_news_tag
     uniqueConstraints:

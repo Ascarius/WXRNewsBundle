@@ -1,4 +1,4 @@
-WXR\NewsBundle\Entity\Post:
+Application\WXR\NewsBundle\Entity\Post:
     type: entity
     table: wxr_news_post
     indexes:
@@ -18,7 +18,7 @@ WXR\NewsBundle\Entity\Post:
                 slug: { fields: [ title ] }
     manyToMany:
         categories:
-            targetEntity: WXR\NewsBundle\Entity\Category
+            targetEntity: Application\WXR\NewsBundle\Entity\Category
             orderBy: { position: ASC, name: ASC }
             joinTable:
                 name: wxr_news_post_category
@@ -29,7 +29,7 @@ WXR\NewsBundle\Entity\Post:
                     category_id:
                         referencedColumnName: id
         tags:
-            targetEntity: WXR\NewsBundle\Entity\Tag
+            targetEntity: Application\WXR\NewsBundle\Entity\Tag
             orderBy: { name: ASC }
             joinTable:
                 name: wxr_news_post_tag

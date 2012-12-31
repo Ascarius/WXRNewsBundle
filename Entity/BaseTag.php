@@ -4,11 +4,11 @@ namespace WXR\NewsBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 
-use WXR\CategoryBundle\Entity\BaseCategory;
-use WXR\NewsBundle\Model\CategoryInterface;
+use WXR\CategoryBundle\Entity\BaseTag as BaseBaseTag;
 use WXR\NewsBundle\Model\PostInterface;
+use WXR\NewsBundle\Model\TagInterface;
 
-class Category extends BaseCategory implements CategoryInterface
+class BaseTag extends BaseBaseTag implements TagInterface
 {
     /**
      * @var PostInterface[]
