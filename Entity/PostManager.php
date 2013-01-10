@@ -17,7 +17,10 @@ class PostManager extends BaseManager implements PostManagerInterface
      */
     public function findOneBySlug($slug)
     {
-        return $this->findOneBy(array('slug' => $slug));
+        return $this->findOneBy(array(
+            'slug' => $slug,
+            'enabled' => true
+        ));
     }
 
     /**
@@ -268,18 +271,6 @@ class PostManager extends BaseManager implements PostManagerInterface
                 ->leftJoin($this->alias.'.tags', 'tag')
             ;
         }
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    protected function buildWhereClause(QueryBuilder $qb, array $criteria)
-    {
-        if (!array_key_exists('enabled', $criteria)) {
-            $criteria['enabled'] = true;
-        }
-
-        return parent::buildWhereClause($qb, $criteria);
     }
 
     /**

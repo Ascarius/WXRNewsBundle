@@ -37,5 +37,5 @@ Application\WXR\NewsBundle\Entity\Post:
                     post_id:
                         referencedColumnName: id
                 inverseJoinColumns:
-                    category_id:
+                    tag_id:
                         referencedColumnName: id
